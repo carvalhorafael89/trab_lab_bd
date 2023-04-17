@@ -1,38 +1,6 @@
 //Teste de Requisições REST - veiculos
-@baseURL = http://localhost:4001/api
+@baseURL = http://localhost:4000/api
 
 // GET - Lista todos os veículos
 GET {{baseURL}}/filmes
-Content-Type: application/json
-
-###
-// GET - Lista um único veículo pela placa
-GET {{baseURL}}/veiculos/ABC7744
-Content-Type: application/json
-
-###
-// POST - Insere um novo veículo
-POST {{baseURL}}/filmes
-Content-Type: application/json
-
-{
-    "titulo": "A VOLTA DOS QUE JA FORAM",
-    "genero": "drama",
-    "alugado": "n"
-}
-
-###
-// PUT - Altera o veículo
-PUT {{baseURL}}/filmes
-Content-Type: application/json
-
-{
-    "titulo": "O BAGULHO EH LOUCO",
-    "genero": "COMEDIA",
-    "alugado": "n"
-}
-
-###
-// DELETE - Apaga um veículo pela placa
-DELETE {{baseURL}}/filmes/
 Content-Type: application/json
