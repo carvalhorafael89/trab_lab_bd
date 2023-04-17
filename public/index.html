@@ -1,12 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <app.use>('./api/veiculos', rotasVeiculos)</app.use>
+<h2>
+    <p>Todo List</p>
+  </h2>
+  
+  <div class="div_lateral">
+    <table>
+      <tr>
+        <td class="header"><strong>ID</strong></td>
+        <td class="header"><strong>TITULO</strong></td>
+        <td class="header"><strong>GENERO</strong></td>
+        <td class="header"><strong>ALUGADO</strong></td>
+      </tr>
+
+        <script>
+            // Listagem dos Dados     
+            const tbody = document.querySelector('table tbody');
+            fetch('http://localhost:4000/api/filmes')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(titulo => {
+                        const row = document.createElement('tr');
+                        const idCell = document.createElement('td');
+                        idCell.textContent = id['id'];
+                        const tituloCell = document.createElement('td');
+                        tituloCell.textContent = titulo['Título'];
+                        const generoCell = document.createElement('td');
+                        generoCell.textContent = filme['Genero'];
+                        const alugadoCell = document.createElement('td');
+                        alugadoCell.textContent = filme['Alugado?'];
+                        
+                        row.appendChild(idCell);
+                        row.appendChild(tituloCell);
+                        row.appendChild(generoCell);
+                        row.appendChild(alugadoCell);
+                    });
+  })
+
+    </script>
+
 </body>
+
 </html>
+      </tr>
+    </table>
+  </div>

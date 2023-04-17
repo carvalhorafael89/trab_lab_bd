@@ -1,14 +1,20 @@
+import express from "express";
+import cors from 'cors';
+import filmes from './routes/filmes.js';
+
+const app = express();
+const port = 4001;
+
+app.use(cors()) //habilita o CORS
+app.use(express.urlencoded({extended: true}));
+app.use(express.json()) //parse JSON
+app.use('./api/filmes', filmes)
 /**
  * Rotas publicas
  */
-
 app.use('/', express.static('public'));
 
-/**
- * Criando rota default da API
- */
-
-app.get('/api', (req, res) => {
+app.get('/api/', (req, res) => {
     res.status(200).json({
         mensagem: 'API 100% funcional!',
         versao: '1.0.0'
@@ -20,10 +26,11 @@ app.get('/api', (req, res) => {
  */
 
 app.use(function(req, res){
-    res.status(404).json({ //passando código de erro como parametro para darmos a mensagem
+    res.status(404).json({
         mensagem: `A rota ${req.originalUrl} não existe!`
     })
 })
+
 
 app.listen(port, function(){
     console.log(`Servidor rodando na porta ${port}`);
