@@ -13,7 +13,7 @@ GO
 GRANT CONNECT SQL TO rafae;
 GO
 
-USE BDFILMES
+USE bdfilmes
 GO
 
 --DROP USER Labbd

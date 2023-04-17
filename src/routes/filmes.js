@@ -1,5 +1,5 @@
 // API REST dos veículos
-import express from 'express'
+import express, { response } from 'express'
 import sql from 'mssql'
 import { sqlConfig } from '../sql/config.js'
 

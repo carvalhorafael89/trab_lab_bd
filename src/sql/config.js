@@ -4,8 +4,8 @@ export const sqlConfig = {
   user: 'rafae',
   password: '090313',
   server: 'localhost\SQLEXPRESS',
-  database: 'bdfilmes.sql',
-  port: 1433,
+  database: 'bdfilmes',
+  port: '1433',
   options: {
       encrypt: true,
       trustServerCertificate: true,
