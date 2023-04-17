@@ -1,37 +1,33 @@
-import express from "express";
-import cors from 'cors';
-import filmes from './routes/filmes.js';
+import express from 'express'
+import cors from 'cors'
+import filmes from './routes/filmes.js'
+const app = express()
+const port = 4000
 
-const app = express();
-const port = 4001;
+app.use(cors()) //Habilita o CORS
+app.use(express.urlencoded({extended: true}))
+app.use(express.json()) // Parse JSON
+/* Rotas do Veículo */
+app.use('/api/filmes', filmes)
 
-app.use(cors()) //habilita o CORS
-app.use(express.urlencoded({extended: true}));
-app.use(express.json()) //parse JSON
-app.use('./api/filmes', filmes)
-/**
- * Rotas publicas
- */
-app.use('/', express.static('public'));
+/* Rotas públicas */
+app.use('/', express.static('public'))
 
-app.get('/api/', (req, res) => {
+/* Rota default da API */
+app.get('/api', (req, res) => {
     res.status(200).json({
         mensagem: 'API 100% funcional!',
-        versao: '1.0.0'
+        versao: '1.0.1'
     })
 })
 
-/**
- * Rota para erro 404
- */
-
+/* Rota para tratar erros 404 */
 app.use(function(req, res){
     res.status(404).json({
         mensagem: `A rota ${req.originalUrl} não existe!`
     })
 })
 
-
 app.listen(port, function(){
-    console.log(`Servidor rodando na porta ${port}`);
+    console.log(`🚀Servidor rodando na porta ${port}`)
 })
